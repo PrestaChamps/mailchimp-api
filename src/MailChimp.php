@@ -14,7 +14,7 @@ namespace DrewM\MailChimp;
 class MailChimp
 {
     const TIMEOUT = 10;
-    static $USER_AGENT = '';
+    static $USER_AGENT = 'DrewM/MailChimp-API/3.0 (github.com/drewm/mailchimp-api)';
     /**
      * Enable SSL Verification
      * @see http://snippets.webaware.com.au/howto/stop-turning-off-curlopt_ssl_verifypeer-and-fix-your-php-config/
@@ -282,7 +282,7 @@ class MailChimp
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-        curl_setopt($ch, CURLOPT_USERAGENT, self::$USER_AGENT);
+        curl_setopt($ch, CURLOPT_USERAGENT, static::$USER_AGENT);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_VERBOSE, true);
         curl_setopt($ch, CURLOPT_HEADER, true);
